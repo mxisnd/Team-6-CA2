@@ -1,11 +1,12 @@
-#para1 {
-text-align: center;
-color: red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1, h2, p {
-text-align: center;
-color: red;
+#para1 {
+    text-align: center;
+    color: red;
 }
 
 .header {
@@ -92,7 +93,7 @@ body {
 }
 
 #video {
-    max-width: 100%; 
+    width: 100%; 
     height: auto; 
 }
 
@@ -123,7 +124,7 @@ body {
 
 .image-1-text {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -260%);
     color: white;
@@ -167,125 +168,152 @@ body {
 
 /* Wrapper for the image container with specific dimensions and styling */
 .wrapper {
-  position: relative;
-  height: 500px;
-  width: 1000px;
-  overflow: hidden;
-  background: #fff;
-  border: 7px solid #fff;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    height: 500px;
+    width: 1000px;
+    overflow: hidden;
+    background: #fff;
+    border: 7px solid #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Container for holding images side by side */
 .wrapper .images {
-  height: 100%;
-  width: 100%;
-  display: flex;
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
 /* Styling for the first image, covering the entire wrapper */
 .wrapper .images .img-1 {
-  height: 100%;
-  width: 100%;
-  background: url("images/Maserati_OSunroof.png") no-repeat;
-  background-size: cover; /* Ensure the image covers the entire area */
+    height: 100%;
+    width: 100%;
+    background: url("images/Maserati_OSunroof.png") no-repeat;
+    background-size: cover; /* Ensure the image covers the entire area */
 }
 
 /* Styling for the second image, positioned on the left half with grayscale filter */
 .wrapper .images .img-2 {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  background: url("images/Maserati_CSunroof.png") no-repeat;
-  background-size: cover; /* Ensure the image covers the entire area */
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: url("images/Maserati_CSunroof.png") no-repeat;
+    background-size: cover; /* Ensure the image covers the entire area */
 }
 
 /* Slider container positioned at the top, full width, with high z-index */
 .wrapper .slider {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 99;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
 }
 
 /* Slider input styling, removing outline and appearance for custom styling */
 .wrapper .slider input {
-  width: 100%;
-  outline: none;
-  background: none;
-  -webkit-appearance: none; /* Remove default slider appearance in WebKit browsers */
+    width: 100%;
+    outline: none;
+    background: none;
+    -webkit-appearance: none; /* Remove default slider appearance in WebKit browsers */
 }
 
 /* Custom styling for the slider thumb (draggable element) */
 .slider input::-webkit-slider-thumb {
-  height: 486px;
-  width: 3px;
-  background: none;
-  -webkit-appearance: none; /* Remove default thumb appearance */
-  cursor: col-resize; /* Cursor indicating column resizing */
+    height: 486px;
+    width: 3px;
+    background: none;
+    -webkit-appearance: none; /* Remove default thumb appearance */
+    cursor: col-resize; /* Cursor indicating column resizing */
 }
 
 /* Line indicating draggable boundary within the slider */
 .slider .drag-line {
-  width: 3px;
-  height: 486px;
-  position: absolute;
-  left: 49.85%; /* Center the drag line */
-  pointer-events: none; /* Prevent mouse events from affecting this element */
+    width: 3px;
+    height: 486px;
+    position: absolute;
+    left: 49.85%; /* Center the drag line */
+    pointer-events: none; /* Prevent mouse events from affecting this element */
 }
 
 /* Top and bottom background sections of the drag line */
 .slider .drag-line::before,
 .slider .drag-line::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 222px;
-  background: #ffc74e;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 222px;
+    background: #ffc74e;
 }
 
 /* Position the top background section */
 .slider .drag-line::before {
-  top: 0;
+    top: 0;
 }
 
 /* Position the bottom background section */
 .slider .drag-line::after {
-  bottom: 0;
+    bottom: 0;
 }
 
 /* Centered circular drag handle */
 .slider .drag-line span {
-  height: 42px;
-  width: 42px;
-  border: 3px solid #ffc74e;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+    height: 42px;
+    width: 42px;
+    border: 3px solid #ffc74e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Arrow styling within the drag handle */
 .slider .drag-line span::before,
 .slider .drag-line span::after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  border: 10px solid transparent; /* Arrow base is transparent */
-  border-bottom-width: 0px;
-  border-right-width: 0px;
-  transform: translate(-50%, -50%) rotate(45deg); /* Rotate to form the arrow */
+    position: absolute;
+    content: "";
+    top: 50%;
+    border: 10px solid transparent; /* Arrow base is transparent */
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate to form the arrow */
 }
 
 /* Left side arrow of the drag handle */
 .slider .drag-line span::before {
-  left: 40%;
-  border-left-color: #4cacf1; /* White arrow on the left */
+    left: 40%;
+    border-left-color: #4cacf1; /* White arrow on the left */
 }
 
 /* Right side arrow of the drag handle */
 .slider .drag-line span::after {
-  left: 60%;
-  border-top-color: #4cacf1; /* White arrow on the right */
+    left: 60%;
+    border-top-color: #4cacf1; /* White arrow on the right */
+}
+
+.box {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#second {
+    display: none;
+}
+
+@keyframes fade-out {
+    from { opacity: 1;}
+    to { opacity: 0;}
+}
+
+@keyframes fade-in {
+    from { opacity: 0;}
+    to { opacity: 1;}
 }

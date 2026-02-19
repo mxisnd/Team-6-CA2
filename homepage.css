@@ -96,6 +96,21 @@ body {
     height: auto; 
 }
 
+.Video-1 {
+    position: relative; /* This "pins" the text to this container */
+    width: 100%;        /* Or whatever width you prefer */
+    display: inline-block; 
+}
+
+.Video-1-text {
+    position: absolute;
+    bottom: 30px;       /* Distance from the bottom */
+    left: 50px;         /* Distance from the left */
+    color: white;       /* Make sure it's visible over the video */
+    font-size: 120px;    /* Adjust size as needed */
+    z-index: 10;        /* Ensures text stays on top of the video */
+}
+
 .image-1 {
     position: relative;
     width: 100%;
@@ -226,7 +241,7 @@ body {
   content: "";
   width: 100%;
   height: 222px;
-  background: #000000;
+  background: #ffc74e;
 }
 
 /* Position the top background section */
@@ -243,7 +258,7 @@ body {
 .slider .drag-line span {
   height: 42px;
   width: 42px;
-  border: 3px solid #000000;
+  border: 3px solid #ffc74e;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -266,11 +281,11 @@ body {
 /* Left side arrow of the drag handle */
 .slider .drag-line span::before {
   left: 40%;
-  border-left-color: #000000; /* White arrow on the left */
+  border-left-color: #4cacf1; /* White arrow on the left */
 }
 
 /* Right side arrow of the drag handle */
 .slider .drag-line span::after {
   left: 60%;
-  border-top-color: #000000; /* White arrow on the right */
+  border-top-color: #4cacf1; /* White arrow on the right */
 }

@@ -10,8 +10,9 @@
 }
 
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
     width: 100%;
     height: 80px;
@@ -24,6 +25,10 @@
     height: 100%;
     display: block;
     margin: 0 auto;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .logo_container {
@@ -171,9 +176,10 @@ body {
     position: relative;
     height: 500px;
     width: 1000px;
+    margin-top: 5%;
+    margin-left: 3%;
+    margin-bottom: 5%;
     overflow: hidden;
-    background: #fff;
-    border: 7px solid #fff;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -206,6 +212,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
+    height: 80%;
     z-index: 99;
 }
 
@@ -219,18 +226,17 @@ body {
 
 /* Custom styling for the slider thumb (draggable element) */
 .slider input::-webkit-slider-thumb {
-    height: 486px;
+    height: 900px;
     width: 3px;
     background: none;
     -webkit-appearance: none; /* Remove default thumb appearance */
-    cursor: col-resize; /* Cursor indicating column resizing */
 }
 
 /* Line indicating draggable boundary within the slider */
-.slider .drag-line {
+.wrapper .slider .drag-line {
     width: 3px;
-    height: 486px;
-    position: absolute;
+    height: 500px;
+    position: relative;
     left: 49.85%; /* Center the drag line */
     pointer-events: none; /* Prevent mouse events from affecting this element */
 }
@@ -241,7 +247,7 @@ body {
     position: absolute;
     content: "";
     width: 100%;
-    height: 222px;
+    height: 230px;
     background: #ffc74e;
 }
 
@@ -291,9 +297,56 @@ body {
     border-top-color: #4cacf1; /* White arrow on the right */
 }
 
+.slider {
+    display: flex;
+    align-items: center; /* vertically center the text with images */
+    gap: 40px; /* space between images and text */
+    margin: 50px 0;
+}
+
+.wrapper-text {
+    color: white;
+    margin-right: 5%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    flex: 1; /* text takes right half */
+}
+
+.wrapper-text span {
+    color: #90adc9;
+    margin-right: 5%;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 80px;
+    flex: 1; /* text takes right half */
+}
+
+.button-click {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    margin-top: 5%;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 5%;
+}
+
+.button-click-text {
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    flex: 1;
+}
+
+.button-click-text span {
+    color: #90adc9;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 80px;
+}
+
 .box {
-    width: 600px;
-    height: 400px;
+    width: 900px;
+    height: 600px;
     position: relative;
     overflow: hidden;
 }

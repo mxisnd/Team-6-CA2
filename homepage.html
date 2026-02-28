@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-
+        <!-- top scrollable header -->
         <div class = "header">
             <div class = "inner_header">
                 <div class = "logo_container">
@@ -25,21 +25,27 @@
             </div>
         </div>
 
+        <!-- video 1 -->
         <div class = "Video-1" id = "overview">
              <video id= "video" autoplay muted loop src="images/The new Maserati MC20 Cielo.mp4" video width="1920" height="1080" type="video/mp4"></video>
              <div class = "Video-1-text"><i>MC20</i></div>
         </div>
         
+        <!-- image 1 -->
         <div class = "image-1">
             <img src = "images/Maserati_Car.png">
             <div class = "image-1-text">THE TRIDENT'S <b><i>LATEST</i></b> SUPER SPORTS CAR <br><span>FIRST OF IT'S KIND</span></div>
         </div>
-
+        
+        <!-- image 2 -->
         <div class = "image-2" id = "features">
             <img src = "images/Car_Interior.jpg">
             <div class = "image-2-text"><span>BEST IN CLASS </span><br>Ergonomics</div>
         </div>
 
+        <!-- exterior 3d model -->
+
+        <!-- car comparison slider -->
         <div class = "slider">
             <div class= "wrapper">
                 <!-- Container holding both images -->
@@ -64,21 +70,40 @@
                 </p>
             </div>
         </div>
+        <script src="homepage.js"></script>
+        
+        <!-- butterfly doors button -->
+        <div class = "button-click">
+            <div class= "button-click-text">
+                <h2><span>Butterfly Doors</span></h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quibusdam inventore iusto asperiores, amet magni error commodi officia tenetur fugiat maxime, labore aliquam maiores fugit nobis accusamus. Explicabo, possimus libero?
+                </p>
+            </div>
+            <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "images/Front_Car.png" ></div>
+            <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "images/OpenDoors_Car.png"></div>
+        </div>
 
-    <!-- JavaScript to handle slider functionality -->
-    <script src="homepage.js"></script>
-    
-    <div class = "button-click">
-        <div class= "button-click-text">
-            <h2><span>Butterfly Doors</span></h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quibusdam inventore iusto asperiores, amet magni error commodi officia tenetur fugiat maxime, labore aliquam maiores fugit nobis accusamus. Explicabo, possimus libero?
+        <!-- engine 3d model-->
+
+
+        <!-- image 3-->
+
+
+        <!-- engine spacebar interactable-->
+
+
+        <!-- specs column-->
+        <div class = "specs">
+            <h3><span>Specifications</span></h3>
+            <div class = "column-container">
+                <div class = "column" id = "speed"><p> abc </p></div>
+                <div class = "column" id = "torque"><p> def </p></div>
+                <div class = "column" id = "power"><p> ghi </p></div>
+            </div>
+            <p class = "specs-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam itaque veniam perspiciatis, nisi accusantium fugit vitae suscipit repudiandae eligendi sint voluptatum ipsa velit minima cupiditate voluptate facilis sit tenetur saepe.
             </p>
         </div>
-        <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "images/Front_Car.png" ></div>
-        <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "images/OpenDoors_Car.png"></div>
-    </div>
-
-    idw do engine... ueueuueuuerghgheuueghheghgheuheuueueueu
     </body>
 </html>

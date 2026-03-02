@@ -66,7 +66,8 @@ html {
 }
 
 .navigation a:hover {
-    background-color: rgb(129, 129, 129);
+    background-color: rgba(129, 129, 129, 0.5);
+    transition: 0.3s ease-out;
 }
 
 .navigation li {
@@ -87,6 +88,7 @@ html {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
+    text-decoration: none;
 }
 
 body {
@@ -174,12 +176,32 @@ body {
     font-size: 90px;
 }
 
+#container3D {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#container3D h2 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    margin: 0;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    z-index: 10;
+    pointer-events: none;
+}
+
 /* comparison slider */
 .wrapper {
     position: relative;
     height: 500px;
     width: 1000px;
-    margin-top: 5%;
     margin-left: 3%;
     margin-bottom: 5%;
     overflow: hidden;
@@ -197,7 +219,7 @@ body {
 .wrapper .images .img-1 {
     height: 100%;
     width: 100%;
-    background: url("images/Maserati_OSunroof.png") no-repeat;
+    background: url("./images/Maserati_OSunroof.png") no-repeat;
     background-size: cover; /* Ensure the image covers the entire area */
 }
 
@@ -206,7 +228,7 @@ body {
     position: absolute;
     height: 100%;
     width: 50%;
-    background: url("images/Maserati_CSunroof.png") no-repeat;
+    background: url("./images/Maserati_CSunroof.png") no-repeat;
     background-size: cover; /* Ensure the image covers the entire area */
 }
 
@@ -375,6 +397,40 @@ body {
     to { opacity: 1;}
 }
 
+/* image 3 */
+
+.image-3 {
+    position: relative;
+    width: 100%;
+}
+
+.image-3 img {
+    width: 100%;
+    display: block;
+}
+
+.image-3-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    color: white;
+    white-space: nowrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 90px;
+    text-align: center;
+}
+.image-3-subtext-1 {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, 60%);
+    color: rgba(129, 129, 129, 0.766);
+    white-space: nowrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: bottom;
+}
 
 /* specs column */
 .specs {
@@ -429,4 +485,124 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* final text */
+
+.final-text {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* footer */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    background-color: rgb(20, 20, 20);
+    padding: 2rem 0 4rem 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+    width: 80%;
+    height: 40vh;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-heading {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.footer-heading h2 {
+    margin-bottom: 2rem;
+}
+
+.footer-heading a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-heading a:hover {
+    color:rgb(174, 174, 174);
+    transition: 0.3s ease-out;
+}
+
+.footer-email-form h2 {
+    margin-bottom: 2rem;
+}
+
+#footer-email {
+    width: 300px;
+    height: 40px;
+    border-radius: 4px; /* curve */
+    outline: none;
+    border: none;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#footer-email::placeholder {
+    color:rgb(178, 178, 178);
+}
+
+#footer-email-btn {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color:rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+#footer-email-btn:hover{
+    cursor: pointer;
+    background-color:rgb(174, 174, 174);
+    transition: 0.3s ease-out;
+}
+
+.footer span {
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
 }

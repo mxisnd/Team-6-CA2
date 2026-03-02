@@ -1,88 +1,80 @@
-// ===== IMPORTS =====
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.183.2/build/three.module.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.183.2/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// ===== GET CONTAINER =====
-const container = document.getElementById("container3D");
-
-// ===== SCENE =====
+// Scene, Camera, Renderer
+const container = document.getElementById('container3D');
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x222222);
+const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+camera.position.set(0, 2, 5);
 
-// ===== CAMERA =====
-const camera = new THREE.PerspectiveCamera(
-  60,
-  container.clientWidth / container.clientHeight,
-  0.1,
-  1000
-);
-camera.position.set(0, 1, 4);
-
-// ===== RENDERER =====
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
-// ===== LIGHTING (IMPORTANT) =====
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(5, 10, 5);
-scene.add(directionalLight);
-
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
-// ===== LOAD MODEL =====
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+directionalLight.position.set(5, 5, 5);
+scene.add(directionalLight);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.autoRotate = true;
+
+// Clock for animations
+const clock = new THREE.Clock();
+let mixer;
 let carModel;
 
+// Load GLB Model
 const loader = new GLTFLoader();
-loader.load(
-  'images/BlueMC20.glb',
-  function (gltf) {
+loader.load('./images/BlueMC20.glb', (gltf) => {
     carModel = gltf.scene;
-
-    // Adjust scale if needed
-    carModel.scale.set(0.5, 0.5, 0.5);
-
+    carModel.scale.set(2, 2, 2); // adjust scale as needed
+    carModel.position.set(0, -.5, 0);
     scene.add(carModel);
-    console.log("✅ Model loaded successfully");
-  },
-  undefined,
-  function (error) {
-    console.error("❌ Error loading model:", error);
-  }
-);
 
-// ===== ANIMATION LOOP =====
+    if (gltf.animations && gltf.animations.length) {
+        mixer = new THREE.AnimationMixer(carModel);
+        const action = mixer.clipAction(gltf.animations[0]);
+        action.play();
+    }
+}, undefined, (error) => console.error(error));
+
+// Animate loop
 function animate() {
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
-  if (carModel) {
-    carModel.rotation.y += 0.002; // slow rotate
-  }
+    const delta = clock.getDelta();
+    if (mixer) mixer.update(delta);
 
-  renderer.render(scene, camera);
+    controls.update();
+    renderer.render(scene, camera);
 }
 animate();
 
-// ===== RESIZE FIX =====
+// Handle resize
 window.addEventListener('resize', () => {
-  camera.aspect = container.clientWidth / container.clientHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(container.clientWidth, container.clientHeight);
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
 });
 
-// ===== COLOR BUTTONS =====
-document.querySelectorAll('.color-circle').forEach((button) => {
-  button.addEventListener('click', () => {
-    const color = button.getAttribute('data-color');
-
-    if (!carModel) return;
-
-    carModel.traverse((child) => {
-      if (child.isMesh) {
-        child.material.color.set(color);
-      }
+// Color change buttons
+const colorButtons = document.querySelectorAll('.color-circle');
+colorButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (!carModel) return;
+        const color = btn.getAttribute('data-color');
+        carModel.traverse(child => {
+            if (child.isMesh && child.material) {
+                child.material.color.set(color);
+            }
+        });
     });
-  });
 });

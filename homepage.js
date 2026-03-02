@@ -70,7 +70,7 @@ function isInView4 (element) {
   const rect = element.getBoundingClientRect();
   return (
     rect.bottom > 0 &&
-    rect.top < (window.innerHeight - 400 || document.documentElement.clientHeight - 400)
+    rect.top < (window.innerHeight - 300 || document.documentElement.clientHeight - 300)
   );
 }
 
@@ -149,7 +149,6 @@ window.addEventListener('resize', () => {
 });
 
 animate(); 
-
 
 // Image Comparison Slider
 const slider = document.querySelector(".slider input");

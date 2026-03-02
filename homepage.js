@@ -58,6 +58,9 @@ window.addEventListener("resize", function () {
 
 animate();
 
+
+//button click
+
 // Selecting the slider input, second image, and drag line elements
 const slider = document.querySelector(".slider input");
 const img = document.querySelector(".images .img-2");

@@ -641,3 +641,31 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1.5rem;
 }
+
+/*NETTUNO ENGINE CSS*/
+#engine-container { 
+    width: 100%;
+    height: 700px;
+    position: relative;
+    background: radial-gradient(circle, #222 0%, #000 100%);
+    cursor: grab;
+}
+
+#engine-container canvas {
+    outline: none;
+}
+
+.engine-overlay-text {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    pointer-events: none; /* Allows clicking "through" text to rotate model */
+    color: white;
+    z-index: 5;
+}
+
+.engine-overlay-text h2 span {
+    color: #90adc9;
+    font-family: 'Times New Roman', serif;
+    font-size: 80px;
+}

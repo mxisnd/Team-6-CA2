@@ -124,45 +124,34 @@ body {
 .image-1 {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .image-1 img {
+    height: 100vh;
     width: 100%;
     display: block;
 }
 
 .image-1-text {
+    margin: 1rem 0;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: 1s ease;
+
     position: absolute;
     top: 60%;
     left: 50%;
-    /* The final resting position */
-    transform: translate(-50%, -260%); 
     color: white;
     white-space: nowrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 50px;
     text-align: center;
-
-    /* Animation: Name | Duration | Timing | Fill-mode */
-    animation: fadeInRight 1.2s ease-out forwards;
 }
 
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        /* Start 50px to the right of the center point */
-        transform: translate(0%, -260%); 
-    }
-    to {
-        opacity: 1;
-        /* End at the original center point */
-        transform: translate(-50%, -260%);
-    }
-}
-
-.image-1-text span {
-    font-weight: lighter;
-    font-size: 30px;
+.image-1-text--visible {
+    transform: translate(-50%, -260%);
+    opacity: 1;
 }
 
 .image-1-text span{
@@ -174,6 +163,7 @@ body {
 .image-2 {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .image-2 img {
@@ -182,14 +172,23 @@ body {
 }
 
 .image-2-text {
+    margin: 1rem 0;
+    transform: translate(0%, -50%);
+    opacity: 0;
+    transition: 1s ease;
+
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
     font-size: 170px;
     font-weight: bold;
     text-align: center;
+}
+
+.image-2-text--visible {
+    transform: translate(-50%, -50%);
+    opacity: 1;
 }
 
 .image-2-text span{
@@ -406,6 +405,7 @@ body {
 .image-3 {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .image-3 img {
@@ -414,26 +414,57 @@ body {
 }
 
 .image-3-text {
+    margin: 1rem 0;
+    transform: translate(-150%, -150%);
+    opacity: 0;
+    transition: 1s ease;
+
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -150%);
     color: white;
     white-space: nowrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 90px;
     text-align: center;
 }
+
+.image-3-text--visible {
+    transform: translate(-50%, -150%);
+    opacity: 1;
+}
+
 .image-3-subtext-1 {
+    margin: 1rem 0;
+    transform: translate(-50%, -80%) scale(0);
+    opacity: 0;
+    transition: 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+
     position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    white-space: nowrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 90px;
+    text-align: center;
+}
+
+.image-3-subtext-1--visible {
+    transform: translate(-50%, -80%) scale(1);
+    opacity: 1;
+}
+
+.image-3-subtext-2 {
+    position: relative;
     top: 90%;
     left: 50%;
-    transform: translate(-50%, 60%);
+    transform: translate(-50%, -150%);
     color: rgba(129, 129, 129, 0.766);
     white-space: nowrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
-    text-align: bottom;
+    text-align: center;
 }
 
 /* specs column */

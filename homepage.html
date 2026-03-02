@@ -11,7 +11,7 @@
         <div class = "header">
             <div class = "inner_header">
                 <div class = "logo_container">
-                    <img id = "maserati_logo" width = "80" height = "40" src = "images/Maserati_Logo.png"></img>
+                    <img id = "maserati_logo" width = "80" height = "40" src = "./images/Maserati_Logo.png"></img>
                     <h1>Maserati <!--<span>MC20</span>--></h1>   
                 </div>
             
@@ -19,31 +19,33 @@
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#performance">Performance</a></li>
-                    <li><a href="customize.html">Customize</a></li>
-                    <li><a href="preorder.html">Preorder</a></li>
+                    <li><a href="./customize.html">Customize</a></li>
+                    <li><a href="./preorder.html">Preorder</a></li>
                 </ul>
             </div>
         </div>
 
         <!-- video 1 -->
         <div class = "Video-1" id = "overview">
-             <video id= "video" autoplay muted loop src="images/The new Maserati MC20 Cielo.mp4" video width="1920" height="1080" type="video/mp4"></video>
+             <video id= "video" autoplay muted loop src="./images/The new Maserati MC20 Cielo.mp4" video width="1920" height="1080" type="video/mp4"></video>
              <div class = "Video-1-text"><i>MC20</i></div>
         </div>
         
         <!-- image 1 -->
         <div class = "image-1">
-            <img src = "images/Maserati_Car.png">
+            <img src = "./images/Maserati_Car.png">
             <div class = "image-1-text">THE TRIDENT'S <b><i>LATEST</i></b> SUPER SPORTS CAR <br><span>FIRST OF IT'S KIND</span></div>
         </div>
         
         <!-- image 2 -->
         <div class = "image-2" id = "features">
-            <img src = "images/Car_Interior.jpg">
+            <img src = "./images/Car_Interior.jpg">
             <div class = "image-2-text"><span>BEST IN CLASS </span><br>Ergonomics</div>
         </div>
 
         <!-- exterior 3d model -->
+        <div id="container3D"></div>
+        <script type="module" src="homepage.js"></script>
 
         <!-- car comparison slider -->
         <div class = "slider">
@@ -80,8 +82,8 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quibusdam inventore iusto asperiores, amet magni error commodi officia tenetur fugiat maxime, labore aliquam maiores fugit nobis accusamus. Explicabo, possimus libero?
                 </p>
             </div>
-            <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "images/Front_Car.png" ></div>
-            <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "images/OpenDoors_Car.png"></div>
+            <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "./images/Front_Car.png" ></div>
+            <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "./images/OpenDoors_Car.png"></div>
         </div>
 
         <!-- engine 3d model-->
@@ -89,7 +91,7 @@
 
         <!-- image 3-->
         <div class = "image-3" id = "performance">
-            <img src = "images/MC20_Image.jpg">
+            <img src = "./images/MC20_Image.jpg">
             <div class = "image-3-text">THE BEATING HEART OF<br><b><i>the MC20</i></b></div>
             <div class = "image-3-subtext-1"><i>Patented technology, derived from F1 for a roaring 3.0L V6 630HP Engine.</i></div>
             <!-- other image here-->
@@ -120,15 +122,15 @@
             <div class = "footer">
                 <div class = "footer-top">
                     <h1>Maserati</h1>
-                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "images/Maserati_Logo.png"></img>
+                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "./images/Maserati_Logo.png"></img>
                 </div>
                 <div class="footer-heading footer-1">
                     <h2>Quick Links</h2>
                     <a href="#overview">Home</a>
                     <a href="#features">Features</a>
                     <a href="#performance">Performance</a>
-                    <a href="customize.html">Customize</a>
-                    <a href="preorder.html">Pre Order</a>
+                    <a href="./customize.html">Customize</a>
+                    <a href="./preorder.html">Pre Order</a>
                 </div>
                 <div class="footer-heading footer-2">
                     <h2>Contact Us</h2>

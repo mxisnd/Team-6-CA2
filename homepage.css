@@ -176,12 +176,32 @@ body {
     font-size: 90px;
 }
 
+#container3D {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#container3D h2 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    margin: 0;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    z-index: 10;
+    pointer-events: none;
+}
+
 /* comparison slider */
 .wrapper {
     position: relative;
     height: 500px;
     width: 1000px;
-    margin-top: 5%;
     margin-left: 3%;
     margin-bottom: 5%;
     overflow: hidden;
@@ -199,7 +219,7 @@ body {
 .wrapper .images .img-1 {
     height: 100%;
     width: 100%;
-    background: url("images/Maserati_OSunroof.png") no-repeat;
+    background: url("./images/Maserati_OSunroof.png") no-repeat;
     background-size: cover; /* Ensure the image covers the entire area */
 }
 
@@ -208,7 +228,7 @@ body {
     position: absolute;
     height: 100%;
     width: 50%;
-    background: url("images/Maserati_CSunroof.png") no-repeat;
+    background: url("./images/Maserati_CSunroof.png") no-repeat;
     background-size: cover; /* Ensure the image covers the entire area */
 }
 
@@ -514,6 +534,7 @@ body {
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .footer-container {

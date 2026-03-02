@@ -32,7 +32,7 @@
 /* FORM STUFF */
 form {
     padding: 50px;
-    height: 100vh;           /* Makes the form section big enough to scroll into */
+    min-height: 100vh;           /* Makes the form section big enough to scroll into */
     background-color: #1a1a1a;
     z-index: 2;
     color: #FFFFFF;
@@ -204,11 +204,10 @@ html {
 }
 
 main {
-    height: 1310px; /* or any fixed height */
+    height: auto; /* or any fixed height */
 }
 body {
     overflow-x: hidden; /* Hides horizontal slider */
-    overflow-y: hidden; /* Hides vertical slider (Warning: prevents all scrolling) */
 }
 
 

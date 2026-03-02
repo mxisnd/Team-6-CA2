@@ -1,45 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Customize</title>
-  <style>
-    body { margin: 0; }
+  <head>
+    <title>MC20</title>
+    <link rel="stylesheet" href="customize.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
 
-    #car-section {
-      width: 100%;
-      height: 80vh;
-      position: relative;
-    }
+  <body>
+        <!-- top scrollable header -->
+        <div class = "header">
+            <div class = "inner_header">
+                <div class = "logo_container">
+                    <img id = "maserati_logo" width = "80" height = "40" src = "images/Maserati_Logo.png"></img>
+                    <h1>Maserati <!--<span>MC20</span>--></h1>   
+                </div>
+            
+                <ul class = "navigation">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="preorder.html">Preorder</a></li>
+                </ul>
+            </div>
+        </div>
 
-    #colors {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+        <!-- Model -->
+        <div class = "Model" id="car-viewer"></div>
 
-    button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      margin: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
+        <!-- Model Color Picker -->
+        <div class="model-buttons" id="model-buttons">
+          <button data-color="white" class="color-circle" style="background-color: white;"></button>
+          <button data-color="orangered" class="color-circle" style="background-color: orangered;"></button>
+          <button data-color="lightblue" class="color-circle" style="background-color: lightblue;"></button>
+          <button data-color="pink" class="color-circle" style="background-color: pink;"></button>
+        </div>
 
-<body>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
 
-<div id="car-section"></div>
+        <script>
+        const container = document.getElementById("car-viewer");
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth/container.clientHeight, 0.1, 1000);
+        camera.position.set(0,1.5,3);
 
-<div id="colors">
-  <button data-color="#ff0000" style="background:white;"></button>
-  <button data-color="#0000ff" style="background:orangered;"></button>
-  <button data-color="#000000" style="background:lightblue;"></button>
-  <button data-color="#ffffff" style="background:pink;"></button>
-</div>
+        const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
 
-<script type="module" src="customize.js"></script>
-</body>
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        const light = new THREE.DirectionalLight(0xffffff,2);
+        light.position.set(5,10,7.5);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0xffffff,0.5));
+
+        let carModel;
+        new THREE.GLTFLoader().load('images/BlueMC20.glb', gltf=>{
+          carModel = gltf.scene;
+          carModel.scale.set(0.5,0.5,0.5);
+          scene.add(carModel);
+          console.log("Car loaded!");
+        }, undefined, err=>console.error(err));
+
+        function animate(){
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene,camera);
+        }
+        animate();
+
+        window.addEventListener("resize", ()=>{
+          camera.aspect = container.clientWidth/container.clientHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+        </script>
+
+        <!-- footer -->
+         <div class = "footer-container">
+            <div class = "footer">
+                <div class = "footer-top">
+                    <h1>Maserati</h1>
+                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "images/Maserati_Logo.png"></img>
+                </div>
+                <div class="footer-heading footer-1">
+                    <h2>Quick Links</h2>
+                    <a href="#overview">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#performance">Performance</a>
+                    <a href="customize.html">Customize</a>
+                    <a href="preorder.html">Pre Order</a>
+                </div>
+                <div class="footer-heading footer-2">
+                    <h2>Contact Us</h2>
+                    <a href="#">Jobs</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Sponsorships</a>
+                </div>
+                <div class="footer-heading footer-3">
+                    <h2>Social Media</h2>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Youtube</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div class="footer-email-form">
+                    <h2>Stay up to date</h2>
+                    <input type="email" placeholder="SUBSCRIBE TO OUR NEWSLETTER" id="footer-email">
+                    <input type="submit" value= "Subscribe" id="footer-email-btn"> 
+                </div>
+                <span></span>
+            </div>
+         </div>
+    </body>
 </html>

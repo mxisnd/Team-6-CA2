@@ -1,0 +1,27 @@
+{
+  "name": "team-6-ca2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "customize.js",
+  "scripts": {
+    "homepage": "node homepage.js",
+    "customize": "node customize.js",
+    "preorder": "node preorder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxisnd/Team-6-CA2.git"
+  },
+  "dependencies": {
+    "@react-three/drei": "10.7.7",
+    "@react-three/fiber": "9.5.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mxisnd/Team-6-CA2/issues"
+  },
+  "homepage": "https://github.com/mxisnd/Team-6-CA2#readme"
+}

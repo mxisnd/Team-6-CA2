@@ -203,3 +203,9 @@ function fadeIn(target, duration = 500, display = 'block') {
     target.style.animation = `fade-in ${duration}ms 1`;
   })
 }
+
+import { Canvas } from "@react-three/fiber";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);

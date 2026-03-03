@@ -11,7 +11,7 @@
         <div class = "header">
             <div class = "inner_header">
                 <div class = "logo_container">
-                    <img id = "maserati_logo" width = "80" height = "40" src = "./images/Maserati_Logo.png"></img>
+                    <img id = "maserati_logo" width = "80" height = "40" src = "./assets/Maserati_Logo.png"></img>
                     <h1>Maserati <!--<span>MC20</span>--></h1>   
                 </div>
             
@@ -27,30 +27,79 @@
 
         <!-- video 1 -->
         <div class = "Video-1" id = "overview">
-             <video id= "video" autoplay muted loop src="./images/The new Maserati MC20 Cielo.mp4" video width="1920" height="1080" type="video/mp4"></video>
+             <video id= "video" autoplay muted loop src="./assets/The new Maserati MC20 Cielo.mp4" video width="1920" height="1080" type="video/mp4"></video>
              <div class = "Video-1-text"><i>MC20</i></div>
         </div>
         
         <!-- image 1 -->
         <div class = "image-1">
-            <img src = "./images/Maserati_Car.png">
+            <img src = "./assets/Maserati_Car.png">
             <div class = "image-1-text">THE TRIDENT'S <b><i>LATEST</i></b> SUPER SPORTS CAR <br><span>FIRST OF IT'S KIND</span></div>
         </div>
         
         <!-- image 2 -->
         <div class = "image-2" id = "features">
-            <img src = "./images/Car_Interior.jpg">
+            <img src = "./assets/Car_Interior.jpg">
             <div class = "image-2-text"><span>BEST IN CLASS </span><br>Ergonomics</div>
         </div>
 
         <!-- exterior 3d model -->
-        
+        <div className="overflow-x-hidden">
+      <Suspense
+        fallback={
+          <div className="fixed inset-0 grid place-items-center bg-black text-white">
+            Loading...
+          </div>
+        }
+      >
+        <section className="relative grid place-items-center h-[100vh]">
+          <p className="text-white text-center absolute top-[5%] mx-4 w-fit text-8xl font-bold">
+            Apple Watch
+          </p>
+          <p className="text-white text-center absolute bottom-[5%] mx-4 w-fit text-8xl font-bold">
+            Ultra 2
+          </p>
+
+          <div  className="h-[100vh] w-[100vw] text-white">
+            <Canvas>
+                
+            </Canvas>
+          </div>
+        </section>
+
+        <section className=" relative flex items-center justify-evenly h-[100vh]">
+          <p className="w-[50%] border-0 border-red-700"></p>
+
+          <p className="text-white w-[50%] text-center px-4 text-4xl font-semibold">
+            Effortlessly scroll, zoom, and navigate with the re-engineered
+            Digital Crown, now more precise than ever.
+          </p>
+        </section>
+
+        <section className=" relative flex items-center justify-evenly h-[100vh]">
+          <p className="text-white order-1 w-[50%] text-center px-4 text-4xl font-semibold">
+            Built for adventure, the rugged straps are as tough as you are,
+            ready for any challenge.
+          </p>
+          <p className="w-[50%] order-2"></p>
+        </section>
+
+        <section className=" relative flex items-center justify-evenly h-[100vh]">
+          <p className="w-[50%] border-0 border-red-700"></p>
+
+            <p className="text-white w-[50%] text-center px-4 text-4xl font-semibold">
+            The brightest display ever on an Apple Watch, so you can see it
+            clearly even under the harshest sun.
+            </p>
+            </section>
+        </Suspense>
+        </div>
 
         <!-- car comparison slider -->
         <div class = "slider">
             <div class= "wrapper">
                 <!-- Container holding both images -->
-                <div class="images">
+                <div class="assets">
                     <div class="img-1"></div> <!-- First image container -->
                     <div class="img-2"></div> <!-- Second image container (overlay) -->
                 </div>
@@ -81,14 +130,14 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quibusdam inventore iusto asperiores, amet magni error commodi officia tenetur fugiat maxime, labore aliquam maiores fugit nobis accusamus. Explicabo, possimus libero?
                 </p>
             </div>
-            <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "./images/Front_Car.png" ></div>
-            <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "./images/OpenDoors_Car.png"></div>
+            <div class = "box" id = "first" onclick="showSecond(this)"> <img src = "./assets/Front_Car.png" ></div>
+            <div class = "box" id = "second" onclick="showFirst(this)"> <img src = "./assets/OpenDoors_Car.png"></div>
         </div>
         <script type="module" src="homepage.js"></script>
 
         <!-- image 3-->
         <div class = "image-3" id = "performance">
-            <img src = "./images/MC20_Image.jpg">
+            <img src = "./assets/MC20_Image.jpg">
             <div class = "image-3-text">THE BEATING HEART OF</div>
             <div class = "image-3-subtext-1"><br><b><i>the MC20</i></b></div></div>
             <div class = "image-3-subtext-2"><i>Patented technology, derived from F1 for a roaring 3.0L V6 630HP Engine.</i></div>
@@ -138,7 +187,7 @@
             <div class = "footer">
                 <div class = "footer-top">
                     <h1>Maserati</h1>
-                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "./images/Maserati_Logo.png"></img>
+                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "./assets/Maserati_Logo.png"></img>
                 </div>
                 <div class="footer-heading footer-1">
                     <h2>Quick Links</h2>

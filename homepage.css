@@ -671,6 +671,18 @@ body {
     align-items: center;
 }
 
+.hover-text {
+    width: 100%;
+    text-align: center;
+    color:rgb(85, 85, 85);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 20%;
+}
+
 /* final text */
 
 .final-text {

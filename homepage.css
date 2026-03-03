@@ -831,6 +831,11 @@ body {
     font-size: 80px;
 }
 
+#gurt {
+    color: grey;
+    opacity: 50%;
+}
+
 /*3d car model*/
 #car-3d-model { 
     width: 100%;

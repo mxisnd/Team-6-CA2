@@ -33,7 +33,7 @@ let carModel;
 
 // Load GLB Model
 const loader = new GLTFLoader();
-loader.load('./images/BlueMC20.glb', (gltf) => {
+loader.load('./assets/BlueMC20.glb', (gltf) => {
     carModel = gltf.scene;
     carModel.scale.set(2, 2, 2); // adjust scale as needed
     carModel.position.set(0, -.5, 0);

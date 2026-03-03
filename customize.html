@@ -12,23 +12,31 @@
         <div class = "header">
             <div class = "inner_header">
                 <div class = "logo_container">
-                    <img id = "maserati_logo" width = "80" height = "40" src = "./assets/Maserati_Logo.png"></img>
+                    <img id = "maserati_logo" width = "80" height = "40" src = "assets/Maserati_Logo.png"></img>
                     <h1>Maserati <!--<span>MC20</span>--></h1>   
                 </div>
             
                 <ul class = "navigation">
-                    <li><a href="./index.html">Overview</a></li>
-                    <li><a href="./index.html">Features</a></li>
-                    <li><a href="./index.html">Performance</a></li>
-                    <li><a href="./customize.html">Customize</a></li>
-                    <li><a href="./preorder.html">Preorder</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="preorder.html">Preorder</a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Model -->
-        <div class = "Model" id="container3D"></div>
-        <canvas class="webgl"></canvas>
+         <!-- 3D Model Container -->
+        <div id="container3D" style="width: 100%; height: 80vh;"></div>
+        <!-- Scripts -->
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+        </script>
         <script type="module" src="customize.js"></script>
 
         <div class="model-buttons" id="model-buttons">
@@ -43,15 +51,15 @@
             <div class = "footer">
                 <div class = "footer-top">
                     <h1>Maserati</h1>
-                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "./assets/Maserati_Logo.png"></img>
+                    <img id = "footer-maserati_logo" width = "40" height = "40" src = "assets/Maserati_Logo.png"></img>
                 </div>
                 <div class="footer-heading footer-1">
                     <h2>Quick Links</h2>
-                    <a href="./index.html">Home</a>
-                    <a href="./index.html">Features</a>
-                    <a href="./index.html">Performance</a>
-                    <a href="./customize.html">Customize</a>
-                    <a href="./preorder.html">Pre Order</a>
+                    <a href="#overview">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#performance">Performance</a>
+                    <a href="customize.html">Customize</a>
+                    <a href="preorder.html">Pre Order</a>
                 </div>
                 <div class="footer-heading footer-2">
                     <h2>Contact Us</h2>

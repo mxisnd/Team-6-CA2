@@ -160,7 +160,7 @@ const container = document.getElementById('car-3d-model');
 const scene = new THREE.Scene();
 
 // Camera setup
-const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 1000);
 camera.position.set(0, 2, 5);
 
 // Renderer setup

@@ -44,20 +44,28 @@
         </div>
 
         <!-- exterior 3d model -->
-        <div id="car-3d-model">
-            <div class="car-overlay-text">
-                <h2>MC<span>20</span></h2>
+        <div id="engine-container">
+            <div class="engine-controls">
+                <h3>Nettuno <span>V8</span></h3>
+                <label class="radio-btn">
+                    <input type="radio" name="engine-view" onclick="playEngineSection(0, 5)" checked>
+                    <span class="checkmark"></span> Pistons
+                </label>
+                <label class="radio-btn">
+                    <input type="radio" name="engine-view" onclick="playEngineSection(6, 22)">
+                    <span class="checkmark"></span> Shortblock
+                </label>
+                <label class="radio-btn">
+                    <input type="radio" name="engine-view" onclick="playEngineSection(22, 40)">
+                    <span class="checkmark"></span> The V8
+                </label>
+            </div>
+
+            <div id="engine-info-box" class="engine-info">
+                <h2 id="info-title">The Pistons</h2>
+                <p id="info-desc">The heart of the V6. Six pistons fire in a synchronized V-formation, converting combustion into massive torque.</p>
             </div>
         </div>
-
-        <script type="carmap">
-        {
-            "imports": {
-            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-        </script>
 
         <!-- car comparison slider -->
         <div class = "slider">

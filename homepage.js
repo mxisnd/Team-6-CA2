@@ -83,6 +83,13 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const clock = new THREE.Clock();
 let mixer;
 
+let engineAction;
+const infoData = {
+    "Pistons": "The heart of the V6. Six pistons fire in a synchronized V-formation...",
+    "Shortblock": "The foundation of performance, engineered for maximum rigidity...",
+    "The V6": "A masterpiece of engineering, the Nettuno engine defines the MC20."
+};
+
 const container = document.getElementById('engine-container');
 const scene = new THREE.Scene();
 
@@ -97,10 +104,10 @@ renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
 // Lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+const ambientLight = new THREE.AmbientLight(0xffffff, 5);
 scene.add(ambientLight);
 
-const sunLight = new THREE.DirectionalLight(0xffffff, 2);
+const sunLight = new THREE.DirectionalLight(0xffffff, 5);
 sunLight.position.set(5, 5, 5);
 scene.add(sunLight);
 
@@ -124,10 +131,54 @@ loader.load('./assets/CarEngine.glb', (gltf) => {
         action.play();
     }
 
+    // Inside your loader.load callback:
+loader.load('./assets/CarEngine.glb', (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
+
+    if (gltf.animations.length) {
+        mixer = new THREE.AnimationMixer(model);
+        engineAction = mixer.clipAction(gltf.animations[0]);
+        engineAction.setLoop(THREE.LoopOnce); // Don't loop automatically
+        engineAction.clampWhenFinished = true; // Stay at the last frame
+        engineAction.play();
+    }
+});
+
+// Function to play specific frames
+window.playEngineSection = function(startTime, endTime) {
+    if (!engineAction) return;
+
+    // Reset and play between specific times
+    engineAction.paused = false;
+    engineAction.time = startTime;
+    mixer.stopAllAction(); 
+    
+    engineAction.play();
+    
+    // Update Text UI
+    const title = event.target.parentElement.textContent.trim();
+    document.getElementById('info-title').innerText = "The " + title;
+    document.getElementById('info-desc').innerText = infoData[title];
+
+    // Logic to stop at endTime
+    const checkTime = () => {
+        if (engineAction.time >= endTime) {
+            engineAction.paused = true;
+            mixer.removeEventListener('loop', checkTime);
+        } else {
+            requestAnimationFrame(checkTime);
+        }
+    };
+    checkTime();
+};
+
     // Center logic...
 }, undefined, (error) => {
     console.error(error);
 });
+
+
 
 // Animation Loop
 function animate() {

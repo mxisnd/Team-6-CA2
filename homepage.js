@@ -74,10 +74,11 @@ function isInView4 (element) {
   );
 }
 
-//NETTUNO ENGINE SCRIPT
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+{//NETTUNO ENGINE SCRIPT
 
 const clock = new THREE.Clock();
 let mixer;
@@ -110,7 +111,7 @@ controls.autoRotate = true;
 
 // Load the CarEngine.glb
 const loader = new GLTFLoader();
-loader.load('./images/CarEngine.glb', (gltf) => {
+loader.load('./assets/CarEngine.glb', (gltf) => {
     const model = gltf.scene;
     scene.add(model);
 
@@ -148,11 +149,84 @@ window.addEventListener('resize', () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
 });
 
-animate(); 
+animate(); }
+
+{//3D Car Model
+
+const clock = new THREE.Clock();
+let mixer;
+
+const container = document.getElementById('car-3d-model');
+const scene = new THREE.Scene();
+
+// Camera setup
+const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+camera.position.set(0, 2, 5);
+
+// Renderer setup
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+scene.add(ambientLight);
+
+const sunLight = new THREE.DirectionalLight(0xffffff, 2);
+sunLight.position.set(5, 5, 5);
+scene.add(sunLight);
+
+// Controls (Allows user to rotate the engine)
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.autoRotate = true;
+
+// Load the CarEngine.glb
+const loader = new GLTFLoader();
+loader.load('./assets/BlueMC20.glb', (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
+
+    // Check if the model has animations
+    if (gltf.animations && gltf.animations.length) {
+        mixer = new THREE.AnimationMixer(model);
+
+        // Play the first animation clip (usually index 0)
+        const action = mixer.clipAction(gltf.animations[0]);
+        action.play();
+    }
+
+    // Center logic...
+}, undefined, (error) => {
+    console.error(error);
+});
+
+// Animation Loop
+function animate() {
+    requestAnimationFrame(animate);
+
+    const delta = clock.getDelta(); // Get time passed since last frame
+    if (mixer) {
+        mixer.update(delta); // Tell the mixer to move the animation forward
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+// Handle Window Resize
+window.addEventListener('resize', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
+animate(); }
 
 // Image Comparison Slider
 const slider = document.querySelector(".slider input");
-const img = document.querySelector(".images .img-2");
+const img = document.querySelector(".assets .img-2");
 const dragLine = document.querySelector(".slider .drag-line");
 
 // Event listener to update image width and drag line position on slider input
@@ -203,9 +277,3 @@ function fadeIn(target, duration = 500, display = 'block') {
     target.style.animation = `fade-in ${duration}ms 1`;
   })
 }
-
-import { Canvas } from "@react-three/fiber";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);

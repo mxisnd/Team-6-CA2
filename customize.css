@@ -105,7 +105,6 @@ body {
     height: 100vh; 
     margin-top: 80px; /* offset for fixed header */
     position: relative;
-    background-color: grey; /* dark background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,15 +113,14 @@ body {
 #container3D canvas {
     width: 100vw;
     height: 100vh;
+    background-color: grey;
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 /* Horizontal buttons at the middle bottom of model container */
 .model-buttons {
     position: absolute;
-    bottom: 200px;
+    bottom: 170px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -142,7 +140,7 @@ body {
 
 .color-circle:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    box-shadow: 0 0 8px black;
 }
 
 /* footer */

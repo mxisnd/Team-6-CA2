@@ -163,9 +163,12 @@ slider.oninput = () => {
 }
 
 // Butterfly Doors Button Clicker
+window.showSecond = showSecond;
+window.showFirst = showFirst;
+
 async function showSecond(target) {
   let second = document.getElementById('second');
-  await fadeOut(target);
+  await fadeOut(target); 
   await fadeIn(second);
 }
 
@@ -195,7 +198,7 @@ function fadeIn(target, duration = 500, display = 'block') {
         target.style.animation =  null;
         resolve();
     };
-    target.animationend = animationEnded;
+    target.onanimationend = animationEnded;
      target.style.display = display;
     target.style.animation = `fade-in ${duration}ms 1`;
   })

@@ -467,36 +467,6 @@ body {
     text-align: center;
 }
 
-.image-4 {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.image-4 img {
-    width: 100%;
-    display: block;
-}
-
-.image-4-text {
-    margin: 1rem 0;
-    transform: translate(-50%, -80%);
-
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    color: white;
-    white-space: nowrap;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
-    text-align: center;
-}
-
-.image-4-text span {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-}
-
 /* specs column */
 .specs {
     display: flex;
